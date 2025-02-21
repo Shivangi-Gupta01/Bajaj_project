@@ -13,12 +13,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Sample data to return from the API (can be dynamic as per your use case)
 let responseData = {
-    "status": "success",
-    "userID": "Shivangi_Gupta_02102005",
-    "collegeEmail": "22bcs15008@cuchd.in",
-    "rollNumber": "22BCS15008",
-    "numbers": [1, 2, 3, 4],
-    "alphabets": ["A", "B", "C"]
+    "is_success": true,
+    "user_id": "Shivangi_Gupta_02102005",
+    "email": "22bcs15008@cuchd.in",
+    "roll_number": "22BCS15008",
+    "numbers": ["1","2","3", "4"],
+    "alphabets": ["A", "B", "C"],
+    "highest_alphabet":["A"]
 };
 
 // POST endpoint to receive JSON payload
@@ -34,7 +35,7 @@ app.post('/submit', (req, res) => {
 
 // GET endpoint to return operation code
 app.get('/operation-code', (req, res) => {
-    const operationCode = "123-ABC"; // Example operation code
+    const operationCode = 1; // Example operation code
     res.json({ operation_code: operationCode });
 });
 
