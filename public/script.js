@@ -12,7 +12,7 @@ function handleSubmit() {
         errorElem.innerText = ""; // Clear error if valid
 
         // Call the API with the valid JSON payload
-        fetch('https://bajaj-project-2a3zjqj4d-shivangi-guptas-projects-bec7f9ad.vercel.app/bfhl', { // Replace with your API endpoint
+        fetch('https://bajaj-project-2a3zjqj4d-shivangi-guptas-projects-bec7f9ad.vercel.app/submit', { // Replace with your API endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
