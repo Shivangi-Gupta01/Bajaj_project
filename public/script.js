@@ -12,7 +12,7 @@ function handleSubmit() {
         errorElem.innerText = ""; // Clear error if valid
 
         // Call the API with the valid JSON payload
-        fetch('https://yourapiendpoint.com', { // Replace with your API endpoint
+        fetch('https://bajaj-project-576mc7wwm-shivangi-guptas-projects-bec7f9ad.vercel.app/submit', { // Replace with your API endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ function handleSubmit() {
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Error fetching data');
+                alert('There was an issue processing the request. Please try again.');
             });
 
     } catch (error) {
@@ -58,19 +58,19 @@ function handleDropdownSubmit() {
 // Function to filter API response based on selected options
 function filterData(selectedOptions) {
     let data = window.apiResponseData; // Stored response data
+    let filteredData = {};
 
-    if (selectedOptions.includes('Alphabets')) {
-        data = data.filter(item => /^[a-zA-Z]+$/.test(item));
+    if (selectedOptions.includes('Alphabets') && data.alphabets) {
+        filteredData.alphabets = data.alphabets;
     }
 
-    if (selectedOptions.includes('Numbers')) {
-        data = data.filter(item => !isNaN(item));
+    if (selectedOptions.includes('Numbers') && data.numbers) {
+        filteredData.numbers = data.numbers;
     }
 
-    if (selectedOptions.includes('Highest alphabet')) {
-        const highest = data.filter(item => /^[a-zA-Z]+$/.test(item)).sort().pop();
-        return [highest]; // Only return the highest alphabet
+    if (selectedOptions.includes('Highest alphabet') && data.highest_alphabet) {
+        filteredData.highest_alphabet = data.highest_alphabet;
     }
 
-    return data;
+    return filteredData;
 }
