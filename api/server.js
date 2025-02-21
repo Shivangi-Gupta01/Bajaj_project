@@ -1,11 +1,15 @@
 // server.js
 
 const express = require('express');
+const path = require('path');  // Required to join paths
 const app = express();
-const port = process.env.PORT || 3000;  // Port to listen on
+const port = 3000;  // Port to listen on
 
 // Middleware to parse JSON bodies
 app.use(express.json());
+
+// Serve static files from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Sample data to return from the API (can be dynamic as per your use case)
 let responseData = {
@@ -32,6 +36,11 @@ app.post('/submit', (req, res) => {
 app.get('/operation-code', (req, res) => {
     const operationCode = "123-ABC"; // Example operation code
     res.json({ operation_code: operationCode });
+});
+
+// Catch-all route to serve the index.html file
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 // Start the server

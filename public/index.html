@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Roll Number</title> <!-- Replace with your roll number -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>User Interface</h1>
+
+        <!-- Text Input & Submit -->
+        <label for="jsonInput">Enter JSON:</label>
+        <textarea id="jsonInput" rows="4" cols="50" placeholder='{"key": "value"}'></textarea>
+        <button onclick="handleSubmit()">Submit</button>
+        <p id="jsonError" class="error"></p>
+
+        <!-- Multi-Select Dropdown (hidden initially) -->
+        <div id="dropdownDiv" style="display:none;">
+            <label for="options">Select Options:</label>
+            <select id="options" multiple>
+                <option value="Alphabets">Alphabets</option>
+                <option value="Numbers">Numbers</option>
+                <option value="Highest alphabet">Highest alphabet</option>
+            </select>
+            <button onclick="handleDropdownSubmit()">Submit</button>
+        </div>
+
+        <!-- Response Section -->
+        <div id="responseDiv" class="result" style="display:none;">
+            <h3>Response:</h3>
+            <pre id="responseData"></pre>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
