@@ -12,26 +12,21 @@ function handleSubmit() {
         errorElem.innerText = ""; // Clear error if valid
 
         // Call the API with the valid JSON payload
-        fetch('https://bajaj-project-2a3zjqj4d-shivangi-guptas-projects-bec7f9ad.vercel.app/submit', { // Replace with your API endpoint
+        fetch('https://bajaj-project-2a3zjqj4d-shivangi-guptas-projects-bec7f9ad.vercel.app/bfhl', { // Replace with your API endpoint
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(parsedJson)
+            body: JSON.stringify(parsedJson) // Make sure parsedJson is a valid object
         })
-            .then(response => response.json())
-            .then(data => {
-                // Show the dropdown and the response section
-                dropdownDiv.style.display = 'block';
-                responseDiv.style.display = 'none'; // Hide response until options are selected
-
-                // Store the data to be filtered later
-                window.apiResponseData = data;
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('There was an issue processing the request. Please try again.');
-            });
+        .then(response => response.json())
+        .then(data => {
+            console.log(data); // Handle the response data
+        })
+        .catch(error => {
+            console.error('Error:', error); // Handle errors
+        });
+        
 
     } catch (error) {
         // Show error if JSON is invalid
